@@ -3,17 +3,17 @@
 // Randomly return "Rock", "Paper" or "Scissors"
 
 
-const choice1 = "Rock";
-const choice2 = "Paper";
-const choice3 = "Scissors";
+const rock = "Rock";
+const paper = "Paper";
+const scissors = "Scissors";
 
 let getComputerChoice = Math.floor(Math.random() * 3) + 1;
 if(getComputerChoice <= 1) {
-    getComputerChoice = choice1
+    getComputerChoice = rock
 } else if(getComputerChoice <= 2) {
-    getComputerChoice = choice2
+    getComputerChoice = paper
 } else {
-    getComputerChoice = choice3
+    getComputerChoice = scissors
 }
 
 // Play a single round of RPS
@@ -25,25 +25,25 @@ if(getComputerChoice <= 1) {
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection === computerSelection) {
-        return "It's a tie, go again!"
+        return tie = "It's a tie, go again!"
     }
-    else if(playerSelection === choice1) {
-        if(computerSelection === choice2) {
-            return "You lose! Paper beats rock!"
-        } else if(computerSelection === choice3) {
-            return "You win! Rock destroys scissors!"
+    else if(playerSelection === rock) {
+        if(computerSelection === paper) {
+            return computerWin = "You lose! Paper beats rock!"
+        } else if(computerSelection === scissors) {
+            return playerWin = "You win! Rock destroys scissors!"
         }
-    } else if(playerSelection === choice2) {
-        if(computerSelection === choice1) {
-            return "You win! Paper beats rock!"
-        } else if(computerSelection === choice3) {
-            return "You lose! Scissors destryos paper!"
+    } else if(playerSelection === paper) {
+        if(computerSelection === rock) {
+            return playerWin = "You win! Paper beats rock!"
+        } else if(computerSelection === scissors) {
+            return computerWin = "You lose! Scissors destryos paper!"
         }
-    } else if(playerSelection === choice3) {
-        if(computerSelection === choice1) {
-            return "You lose! Rock destroys scissors!"
-        } else if(computerSelection === choice2) {
-            return "You win! Scissors destroys paper!"
+    } else if(playerSelection === scissors) {
+        if(computerSelection === rock) {
+            return computerWin = "You lose! Rock destroys scissors!"
+        } else if(computerSelection === paper) {
+            return playerWin = "You win! Scissors destroys paper!"
         }
     }
 }
@@ -57,3 +57,22 @@ function capitalize(playerSelection) {
   }
 const computerSelection = getComputerChoice;
 console.log(playRound(capitalize(playerSelection), computerSelection));
+
+// Create function that keeps score between player and computer
+// if player beats computer, up score with 1
+// when player or computer reaches 3, end game
+
+let playerScore = 0;
+let computerScore = 0;
+
+function game(playerScore, computerScore) {
+    if(playRound === playerWin) {
+        playerScore++
+    } else if(playRound === computerWin) {
+        computerScore++
+    } else {
+        game
+    }
+}
+console.log(playerScore);
+console.log(computerScore);
